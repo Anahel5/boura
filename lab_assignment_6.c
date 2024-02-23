@@ -2,20 +2,14 @@
 #include <stdlib.h>
 
 int search(int numbers[], int low, int high, int value) 
-{
-    int n=0,index=0,flag=0;
-    
-	if(value==n){
-        flag=1;
-        return index;
-    }
-    if(value!=n){
-        n=numbers[low++];
-        index++;
-        search(numbers,n,high,value);
-    }
-    if(flag==0){
+{   
+	if(low>high){
         return -1;
+    }
+    if(value!=numbers[low]){
+        search(numbers,low+1,high,value);
+    }else{
+        return low;
     }
 }
 
